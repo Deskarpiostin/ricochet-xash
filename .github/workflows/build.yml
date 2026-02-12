@@ -60,7 +60,6 @@ jobs:
       - name: Build and Package
         run: |
           cmake --build .
-          cpack --config CPackConfig.cmake
         working-directory: build
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -87,12 +86,9 @@ jobs:
           sudo apt-get install libatomic1:i386 libgcc-s1:i386 \
             libstdc++6:i386 gcc-multilib g++-multilib \
             ninja-build libfontconfig-dev:i386 libfontconfig-dev
-      - name: Configure
-        run: cmake --preset "linux-ci-${{ matrix.arch }}"
       - name: Build and Package
         run: |
           cmake --build .
-          cpack --config CPackConfig.cmake
         working-directory: build
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
