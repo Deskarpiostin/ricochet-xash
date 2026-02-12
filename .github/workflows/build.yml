@@ -74,13 +74,13 @@ jobs:
     - name: Build on Windows
       if: startsWith(matrix.os, 'windows')
       run: |
-        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -B build -S . -DCMAKE_INSTALL_PREFIX="dist"
+        cmake -DCMAKE_BUILD_TYPE=Release -B build -S . -DCMAKE_INSTALL_PREFIX="dist"
         cmake --build build --target all
         cmake --build build --target install
     - name: Build on Windows with vgui
       if: startsWith(matrix.os, 'windows')
       run: |
-        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -B build -S . -DUSE_VGUI=ON -DCMAKE_INSTALL_PREFIX="dist-vgui"
+        cmake -DCMAKE_BUILD_TYPE=Release -B build -S . -DUSE_VGUI=ON -DCMAKE_INSTALL_PREFIX="dist-vgui"
         cmake --build build --target all
         cmake --build build --target install
 
